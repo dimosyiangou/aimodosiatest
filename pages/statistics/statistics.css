@@ -1,0 +1,99 @@
+#statistics table{
+width : 40%;
+border-collapse:collapse;
+line-height:25px;
+float:right;
+}
+#statistics table th{
+text-align : center;
+}
+#statistics table td{
+text-align : center;
+}
+#statistics  tr { 
+background-color : white;
+}
+#statistics table thead tr{
+border-bottom : 1px solid black;
+}
+#statistics table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#statistics table tbody tr:hover { 
+background-color : #f1ecec;
+}
+#statistics table tbody	td { 
+border-right : 1px solid black;
+}
+#statistics table tbody	td:last-child { 
+border-right : 0px;
+}
+#statistics p{
+width :50%;
+float:left;
+}
+.statisticsSeparator{
+position:relative;
+clear:both;
+height : 20px;
+}
+
+
+#statistics table.datesTable{
+    width: 40%;
+	border-collapse:collapse;
+	
+}
+#statistics  table.datesTable  th,
+#statistics  table.datesTable  td,
+#statistics  table.datesTable  tr,
+#statistics  table.datesTable  thead,
+#statistics  table.datesTable  tbody { display: block; }
+
+#statistics  table.datesTable  thead tr {
+    /* fallback */
+    width: 97%;
+    /* minus scroll bar width */
+    width: -webkit-calc(100% - 16px);
+    width:    -moz-calc(100% - 16px);
+    width:         calc(100% - 16px);
+}
+
+#statistics  table.datesTable  tr:after {
+    content: ' ';
+    display: block;
+    visibility: hidden;
+    clear: both;
+}
+
+#statistics  table.datesTable  tbody {
+    max-height: 200px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+#statistics  table.datesTable thead tr th { 
+float: left;
+    line-height:25px;
+    /*text-align: left;*/
+	text-align : center;
+}
+
+
+#statistics  table.datesTable tbody td{
+    line-height:25px;
+	float: left;
+	text-align : center;
+	}
+	
+#statistics table.datesTable tbody tr { 
+background-color : white;
+}
+#statistics table.datesTable tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#statistics table.datesTable tbody tr:hover { 
+background-color : #f1ecec;
+}

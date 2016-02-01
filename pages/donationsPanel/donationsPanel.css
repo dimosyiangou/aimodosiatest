@@ -1,0 +1,64 @@
+#searchUserAdd label{
+	margin : 0px 15px;
+}
+
+#bodyAimodosies  #bodyAimodosiesTable table.scroll  {
+    width: 100%;
+    border-collapse:collapse;
+}
+
+#bodyAimodosies  #bodyAimodosiesTable  table.scroll  th,
+#bodyAimodosies  #bodyAimodosiesTable  table.scroll  td,
+#bodyAimodosies  #bodyAimodosiesTable  table.scroll  tr,
+#bodyAimodosies  #bodyAimodosiesTable  table.scroll  thead,
+#bodyAimodosies  #bodyAimodosiesTable  table.scroll  tbody { display: block; }
+
+#bodyAimodosies  #bodyAimodosiesTable  table.scroll  thead tr {
+    /* fallback */
+    width: 97%;
+    /* minus scroll bar width */
+    width: -webkit-calc(100% - 16px);
+    width:    -moz-calc(100% - 16px);
+    width:         calc(100% - 16px);
+}
+
+#bodyAimodosies  #bodyAimodosiesTable  table.scroll  tr:after {
+    content: ' ';
+    display: block;
+    visibility: hidden;
+    clear: both;
+}
+
+#bodyAimodosies  #bodyAimodosiesTable  table.scroll  tbody {
+    max-height: 500px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+#bodyAimodosies  #bodyAimodosiesTable  table.scroll thead tr th { 
+float: left;
+    height: 30px;
+    line-height: 30px;
+    /*text-align: left;*/
+	text-align : center;
+}
+
+
+#bodyAimodosies  #bodyAimodosiesTable  table.scroll tbody td{
+float: left;
+	text-align : center;
+	line-height:35px;
+	height : 35px;
+}
+
+#bodyAimodosies  #bodyAimodosiesTable  tbody  tr { 
+background-color : white;
+}
+
+#bodyAimodosies  #bodyAimodosiesTable table.scroll tbody  tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#bodyAimodosies  #bodyAimodosiesTable table.scroll tbody  tr:hover { 
+background-color : #f1ecec;
+}

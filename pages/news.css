@@ -1,0 +1,37 @@
+.newsField{
+margin-top:15px;
+border-bottom: 1px solid gray;
+}
+#toPostHeader{
+	width:400px;
+}
+#toPostBody{
+	margin-top:10px;
+	width:400px;
+	height:150px;
+}
+#createNews{
+margin-top : 15px;
+}
+#createNews label{
+	width:100px;
+    display: inline-block;	
+}
+
+.newsField .newsHeader{
+	font-size : 20px;
+	font-weight : bold;
+}
+
+.newsField .newsBody{
+	margin : 15px 0px;
+}
+#editHeader{
+	width:400px;
+	font-size : 18px;
+}
+#editBody{
+	margin-top:10px;
+	width:600px;
+	height:250px;
+}

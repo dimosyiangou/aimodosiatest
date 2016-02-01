@@ -1,0 +1,76 @@
+#recipientDetails label {
+	width: 155px;
+    display: inline-block;
+	line-height:35px;
+	padding-left:60px;
+}
+#recipientDetails .editable{
+	width: 280px;
+	padding-left:0px;
+}
+
+#recipientDetails input {
+	display: inline-block;
+	}
+#recipientDetails span{
+	color : red;
+}
+
+/*#userProfile #newPassword , #userProfile #confirmPassword{
+	display : none;
+}*/
+#recipientDetails input[type=text], input[type=password] {
+/*
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
+  */
+  outline: none;
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  border: 1px solid #DDDDDD;
+}
+ 
+#recipientDetails input[type=text]:focus, input[type=password]:focus {
+  box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  border: 1px solid rgba(81, 203, 238, 1);
+}
+
+#recipientDetails {
+-webkit-animation: fadein 0.5s; /* Safari and Chrome */
+       -moz-animation: fadein 0.5s; /* Firefox */
+        -ms-animation: fadein 0.5s; /* Internet Explorer */
+         -o-animation: fadein 0.5s; /* Opera */
+            animation: fadein 0.5s;
+			}
+			@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Firefox */
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Safari and Chrome */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}?
+
+/* Opera */
+@-o-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}?

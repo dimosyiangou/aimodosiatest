@@ -1,0 +1,117 @@
+
+#ticketsDiv .ticketTables {
+width : 100%;
+}
+#ticketsDiv #repostMessage{
+width : 90%;
+height:100px;
+border-radius:15px;
+margin-top:20px;
+padding:10px;
+}
+#ticketsDiv #title{
+width : 90%;
+line-height:25px;
+height:25px;
+padding:10px;
+border-radius:5px;
+font-weight : bold;
+font-size:16px;
+}
+#ticketsDiv #message{
+width : 90%;
+height:100px;
+border-radius:15px;
+margin-top:20px;
+padding:10px;
+}
+#ticketsDiv .ticketTables{
+border-collapse : collapse;
+}
+#ticketsDiv .ticketTables thead th{
+ text-align: left;
+ }
+#ticketsDiv .ticketTables td{
+line-height:40px;
+height:40px;
+}
+
+#ticketsDiv .ticketTables tbody tr  {
+background-color:white;
+}
+#ticketsDiv .ticketTables tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#ticketsDiv .ticketTables tbody tr:hover { 
+background-color : #f1ecec;
+}
+#mainTickets{
+margin-top:20px;
+}
+#ticketsDiv #ticketViewTitle{
+	width:90%;
+	margin:0px auto;
+}
+#ticketsDiv #ticketViewBody{
+	background-color:white;
+	border-radius:10px;
+	padding:10px;
+	width:90%;
+	margin:0px auto;
+}
+#ticketsDiv #ticketViewTableBuffer{
+width:90%;
+clear:both;
+height:35px;
+line-height:35px;
+text-align:right;
+border-bottom:1px solid gray;
+margin:0px auto;
+}
+
+#ticketsDiv #adminAnswerPanel{
+width:95%;
+text-align:right;
+}
+#ticketsDiv #answerPanel{
+margin-top:20px;
+width:100%;
+text-align:right;
+}
+#ticketsDiv #answerCreation{
+width:95%;
+text-align:right;
+}
+.rightalignment{
+	text-align:right;
+}
+
+#contactMain{
+padding:40px;
+}
+.newsletterLabel{
+display:inline-block;
+width:60px;
+}
+#mailSubject{
+width:530px;
+line-height:25px;
+font-weight:bold;
+font-size:15px;
+}
+#mailMessage{
+width:530px;
+height:200px;
+}
+
+#subject{
+width:530px;
+line-height:25px;
+font-weight:bold;
+font-size:15px;
+}
+#message{
+width:530px;
+height:200px;
+}

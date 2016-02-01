@@ -1,0 +1,44 @@
+#facts p {
+color : #666666;
+font-size : 17px;
+font-weight : bold;
+}
+#facts span {
+color : #d81e05;
+}
+
+#facts p{
+-webkit-animation: fadein 2s; /* Safari and Chrome */
+       -moz-animation: fadein 2s; /* Firefox */
+        -ms-animation: fadein 2s; /* Internet Explorer */
+         -o-animation: fadein 2s; /* Opera */
+            animation: fadein 2s;
+			}
+			@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Firefox */
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Safari and Chrome */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}?
+
+/* Opera */
+@-o-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}?

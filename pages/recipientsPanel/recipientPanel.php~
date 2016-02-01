@@ -1,0 +1,137 @@
+<link rel="stylesheet" type="text/css" href="pages/recipientsPanel/recipient.css">
+<?php 
+session_start();
+if(isset($_SESSION['userType']) && $_SESSION['userType']==1){
+require_once("../../libs/sql.php");
+require_once("../../libs/db.php");
+$dbConnection = connectToDB();
+$flag = 0;
+$failMSG = "";
+$successMSG = "";
+	
+	
+		if(isset($_POST['donorID'])){
+	
+		$firstName = $_POST['firstName'];
+		$lastName = $_POST['lastName'];
+		$hospital = $_POST['hospital'];
+		$hospitalCity = $_POST['hospitalCity'];
+		$date = $_POST['date'];
+		$flasks = $_POST['flasks'];
+		$donorID = $_POST['donorID'];
+		$check = mysql_query("select flasks, sent from users where id=$donorID;");
+		while($row = mysql_fetch_array($check)){
+			if(is_numeric(intval($flasks)) /*&& intval($flasks)>0*/){
+				if(intval($row['flasks'])-intval($row['sent'])-intval($flasks)>=0 /*&& intval($row['flasks'])!=0*/){
+		
+				$create = mysql_query("INSERT INTO recipient ".
+								  "set firstName = '$firstName', " .
+									  "lastName = '$lastName', " .
+									  "hospital = '$hospital', " .
+									  "hospitalCity = '$hospitalCity', " .
+									  "date = '$date', " .
+									  "flasks = '$flasks', " .
+									  "donorID = '$donorID' ;");
+				
+					if($create){
+					$result1 = mysql_query("UPDATE users set sent = sent + '$flasks' where id = '$donorID' ;");
+						$successMSG = "Πετυχημένη καταχώρηση";
+						$flag = 1;
+					}else {
+						$failMSG = "Πρόβλημα με την βάση";
+						  //echo "<button onclick=\"window.location='index.php?p=createUser'\">Προσπαθήστε ξανά</button>";
+					}
+				}
+				/*else{
+				$flag = 2;
+					$failMSG= "Δέν επαρκούν οι φιάλες";
+					
+				}*/
+			}else{
+				$failMSG= "Φιάλες > 0";
+			}
+		}
+			
+		}
+	if(!isset($_POST['searchUser'])){
+		?><div id="searchUserAdd">
+						<label for="searchUser">Ονοματεπώνυμο:</label>
+						<input class="textBox" type="text" id="searchUser" onkeyup="recipientsListSearch()">
+					</div><br>
+					<?php } ?>
+			<div id="recipientList">
+	<table width="100%" class="scroll">
+	<thead>
+		<tr><th width="10%">ID</th><th width="27%">Επώνυμο</th><th width="25%">Όνομα</th><th width="10%">Αίμα</th><th width="10%">Υπόλοιπο</th><th width="15%"></th>
+		</tr>
+		</thead>
+		<tbody>
+		<?php
+		if(!isset($_POST['searchUser'])){
+			$pinakas = aimodotes();
+		}else{
+			$searchUser = $_POST['searchUser'];
+			$pinakas = mysql_query("SELECT * FROM users Where (firstName like '%$searchUser%' or lastName like '%$searchUser%') and usertype = 2 ;");
+		}
+		while($row = mysql_fetch_array($pinakas)){
+			?> <tr id="<?php echo $row['id'].'tr';?>"> <?php
+			echo '<td width="10%">'.$row['id'].'</td><td width="27%">'.$row['lastName'].'</td><td width="25%">'.$row['firstName'].'</td><td width="10%">'.$row['bloodType'].'</td><td width="10%">'.($row['flasks']-$row['sent']).'</td>';
+			 ?><td width="15%"><button class="button1" name="recipientChoice" id="<?php echo $row['id'].'choice';?>" onclick="donorChoice(this)">Επιλογή</button></td>
+			 <?php echo '</tr>';
+		}
+		
+		?>
+		</tbody>
+	</table>
+	<label style="color:red;" id="failMSG"><?php echo $failMSG ?></label>
+	<label style="color:green;" id="successMSG"><?php echo $successMSG ?></label>
+</div>
+<div id="recipient">
+	<form action="" method="POST">
+		<table><tr>
+		<td><label for="lastName">Επώνυμο</label></td><td><input class="textBox" type="text" id="lastName"></td>
+		<td></td>
+		<td><label for="firstName">Όνομα</label></td><td><input class="textBox" type="text" id="firstName"></td>
+		<td></td>
+		</tr><tr>
+		<td><label for="hospital">Νοσοκομείο</label></td><td><input class="textBox" type="text" id="hospital"></td>
+		<td></td>
+		<td><label for="hospitalCity">Πόλη Νοσοκομείου</label></td><td><input class="textBox" type="text" id="hospitalCity"></td>
+		<td></td>
+		</tr><tr>
+		<td>
+		<label class="dateFields" id="birthDateLabel" for="birthDate">Ημ/νία</label></td>
+			<td colspan="3"><input class="textBox dateFields" Style="width:20px;" type="text" name="day" id="day" maxlength="2" 
+>
+			
+			<label class="dateFields" Style="width:50px;" id="dayLabel" for="day">Μέρα</label>
+			<input class="textBox dateFields" Style="width:20px;" type="text" name="month" id="month" maxlength="2" 
+>
+			<label class="dateFields" Style="width:50px;" id="monthLabel" for="month">Μήνας</label>
+			<input class="textBox dateFields" Style="width:35px;" type="text" name="year" id="year" maxlength="4" >
+			<label class="dateFields" Style="width:50px;" id="yearLabel" for="year">Χρονιά</label>
+			
+		</td><td align="right"><label for="flasks">Φιάλες </label><input class="textBox" type="text" id="flasks" ></td>
+		<td></td>
+		</tr>
+		</table>
+		
+		<input style="margin-left:480px;" class="button3" type="button" id="confirm" value="Συνέχεια" onclick="confirmRecipient()">
+		<input class="button2" type="button" id="cancel" value="Άκυρο" onclick="cancelRecipient()">
+	</form>
+</div>
+<?php 	
+		
+	 
+}else{
+	echo 'Negative!';
+	header( "refresh:2;index.php" );
+/*
+		 onkeypress="return onpressNumCheckZeroIn(event)"
+		onkeypress="return onpressNumCheckZeroIn(event)"
+		onkeypress="return onpressNumCheckZeroIn(event)"
+		onkeypress="return onpressNumCheck(event)"		
+		*/
+}
+
+?>

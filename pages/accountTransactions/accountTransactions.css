@@ -1,0 +1,65 @@
+#transactionsDiv table  {
+    width: 100%;
+    border-collapse:collapse;
+}
+
+#transactionsDiv #donationsTable  {
+    width: 30%;
+    border-collapse:collapse;
+}
+
+#transactionsDiv  table  th,
+#transactionsDiv  table  td,
+#transactionsDiv  table  tr,
+#transactionsDiv  table  thead,
+#transactionsDiv  table  tbody { display: block; }
+
+#transactionsDiv  table  thead tr {
+    /* fallback */
+    width: 97%;
+    /* minus scroll bar width */
+    width: -webkit-calc(100% - 16px);
+    width:    -moz-calc(100% - 16px);
+    width:         calc(100% - 16px);
+}
+
+#transactionsDiv  table  tr:after {
+    content: ' ';
+    display: block;
+    visibility: hidden;
+    clear: both;
+}
+
+#transactionsDiv  table  tbody {
+    max-height: 500px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+#transactionsDiv table thead tr th { 
+float: left;
+    height: 30px;
+    line-height: 30px;
+    /*text-align: left;*/
+	text-align : center;
+}
+
+
+#transactionsDiv table tbody td{
+float: left;
+	text-align : center;
+	line-height:35px;
+	height : 35px;
+}
+
+#transactionsDiv  tbody  tr { 
+background-color : white;
+}
+
+#transactionsDiv table tbody  tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#transactionsDiv table tbody  tr:hover { 
+background-color : #f1ecec;
+}
